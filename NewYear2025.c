@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 /**
 * @brief Функция создания новогодней елки 2025 года
@@ -9,6 +11,8 @@ void drawTree(const int height);
 int main(void) 
 {
     int height;
+
+    srand(time(NULL)); 
 
     printf("Введите высоту елки: ");
     scanf("%d", &height);
@@ -32,7 +36,26 @@ void drawTree(const int height)
 
         for (int j = 0; j < 2 * i + 1; j++) 
         {
-            printf("*");
+            int decoration = rand() % 6;
+            switch(decoration) {
+                case 0:
+                    printf("*");
+                    break;
+                case 1:
+                    printf("o");
+                    break;
+                case 2:
+                    printf("@");
+                    break;
+                case 3:
+                    printf("+");
+                    break;
+                case 4:
+                    printf("&");
+                    break;
+                default:
+                    printf("*");
+            }
         }
         printf("\n"); 
     }
